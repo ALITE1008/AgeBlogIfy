@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./partials/header') %>
+    <title>HomePage</title>
+    <style>
+      .cardcon{
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+    </style>
+</head>
+<body >
+    <%- include('./partials/nav') %>
+
+     <div class=" cardcon">
+        <% blog.forEach(blog => { %>
+          <div class="maindiv">
+            <div class="card" style="width: 18rem;">
+              <img src="<%= blog.coverImgUrl %>" class="card-img-top" >  
+              <div class="card-body">
+                <h4 class="card-title"> <%= blog.title %> </h4>
+                <a href="/blog/<%= blog._id %>" class="btn btn-primary">Read</a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+     </div>
+ 
+    <%- include('./partials/scripts') %>
+</body>
+</html>
