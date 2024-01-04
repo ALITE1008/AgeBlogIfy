@@ -15,24 +15,34 @@
                 align-items: center;
                 justify-content: center;
                 gap: 10px;
+                text-align: center;
             }
+            .content{
+                width: 80vw;
+            }
+            .sent{
+                display: flex;
+                gap: 5px;
+            }
+            
         </style>
 </head>
 
 <body>
     <%- include('./partials/nav') %>
         <div class="user mt-3 ms-2">
+            
             <img src="<%= blog.createdBy.profileImageURl %>" id="userimage" height="50px">
             <label for="userimage">
                 <%=blog.createdBy.fullName %>
             </label>
         </div>
         <div class="viewblogcon">
-            <img src="<%= blog.imgLink %>" width="600vw">
-            <h1>
+            <img src="<%= blog.coverImgUrl %>" width="600vw" class="img-fluid">
+            <h1 class="m-2">
                 <%= blog.title %>
             </h1>
-            <p style="margin: 20px;">
+            <p style="margin: 20px;" class="content">
                 <%= blog.body %>
             </p>
         </div>
@@ -42,14 +52,17 @@
                 <form action="/blog/comment/<%= blog._id %>" method="post">
                     <div class="mb-3 ms-2 me-4">
                         <label for="content" class="form-label">Enter your Comments</label>
-                        <textarea class="form-control " name="content" id="content" rows="1"></textarea>
-                        <button type="submit" class="btn btn-outline-info">Add</button>
+                        <div class="sent">
+                            <textarea class="form-control" name="content" id="content" rows="1"></textarea>
+                            <button type="submit" class="btn btn-outline-info">Add</button>
+
+                        </div>
                     </div>
                 </form>
                 <% } %>
                 <% if (locals.comments) { %>
                 <% comments.forEach(comment => { %>
-                    <div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end mb-3 ms-3 me-3">
+                    <div class="p-2 bg-info bg-opacity-10 border border-info border-start-0 rounded-end mb-3 ms-2 me-3">
                                 <img src="<%= comment.createdby.profileImageURl%>" id="userimage" height="50px">
                                 <label for="userimage">
                                     <%=comment.createdby.fullName %>

@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%- include('./partials/header') %>
-    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./partials/header') %>
+    <title>HomePage</title>
     <style>
-      .container_addBlog {
-        width: 100%;
-        padding-top: 50px;
-        display: flex;
-        justify-content: center;
-      }
-
-      .c_con {
-        width: 60vw;
-      }
+  .container_addBlog{
+    width: 100%;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  .c_con{
+    width:60vw;
+  }
     </style>
 </head>
-
 <body>
 
-  <%- include('./partials/nav') %>
+    <%- include('./partials/nav') %>
     <div class="container_addBlog">
-      <div class="c_con">
-        <form method="post" action="/blog/add-Blog" enctype="multipart/form-data">
-          <div class="mb-3">
-            <label for="imgLink" class="form-label">Link of cover Image</label>
-            <input type="url" name="imgLink" class="form-control" id="imgLink">
-          </div>
-          <div class="mb-2">
-            <label for="formFile" class="form-label">Cover Image for Blog</label>
-            <input class="form-control" type="file" name="coverimage" id="formFile">
-          </div>
-          <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input type="text" name="title" class="form-control" id="title">
-          </div>
-          <div class="mb-3">
-            <label for="blog-body" class="form-label">Content</label>
-            <textarea class="form-control" name="blog_body" id="blog-body" rows="3"></textarea>
-          </div>
-          <button type="submit" class="btn btn-outline-info">Submit</button>
-        </form>
+    <div class="c_con">   
+        <form method="post" action="/blog/add-Blog" >
+    <div class="mb-2">
+        <label for="formFile" class="form-label">Cover Image for Blog</label>
+        <input class="form-control" type="text" name="coverimage" id="formFile">
       </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" id="title">
+      </div>
+      <div class="mb-3">
+        <label for="blog-body" class="form-label">Content</label>
+        <textarea class="form-control" name="blog_body" id="blog-body" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-outline-info">Submit</button>
+    </form>
     </div>
-    <%- include('./partials/scripts') %>
+  </div>
+    <%- include('./partials/scripts') %>    
 </body>
-
 </html>
