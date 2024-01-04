@@ -28,10 +28,11 @@ router.get('/add-Blog', (req, res) => {
   });
 })
 router.post('/add-Blog', upload.single('coverimage'), async (req, res) => {
-  const { title, blog_body } = req.body;
+  const { title, blog_body ,imgLink } = req.body;
 
   const Blog = await blog.create({
-    coverImgUrl: `/upload/${req.file.filename}`,
+    imgLink:imgLink,
+    // coverImgUrl: `/upload/${req.file.filename}`,
     title: title,
     body: blog_body,
     createdBy: req.user.id,
