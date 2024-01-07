@@ -15,17 +15,43 @@
   .c_con{
     width:60vw;
   }
+  *{
+            color: rgb(70, 70, 208);
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .parent{
+            width: 100%;    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mainp{
+            background-color: rgb(19, 19, 19);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid snow;
+        }
+        .mainp:hover{
+            box-shadow: 0px 0px 30px rgb(76, 249, 249);
+            scale: 0.95;
+            border: 1.5px solid rgb(177, 240, 240);
+        }
     </style>
 </head>
 <body>
 
     <%- include('./partials/nav') %>
-    <div class="container_addBlog">
-    <div class="c_con">   
+    <div class="container_addBlog parent">
+    <div class="c_con mainp">   
         <form method="post" action="/blog/add-Blog" >
     <div class="mb-2">
-        <label for="formFile" class="form-label">Cover Image for Blog</label>
-        <input class="form-control" type="text" name="coverimage" id="formFile">
+        <label for="formFile" class="form-label">Cover Image URl</label>
+        <input class="form-control" type="text" name="coverimage" id="formFile" placeholder="https://www.images-495.com/">
       </div>
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
@@ -35,7 +61,9 @@
         <label for="blog-body" class="form-label">Content</label>
         <textarea class="form-control" name="blog_body" id="blog-body" rows="3"></textarea>
       </div>
-      <button type="submit" class="btn btn-outline-info">Submit</button>
+      <div class="main">
+        <button type="submit" class="btn btn-outline-info">Submit</button>
+      </div>
     </form>
     </div>
   </div>

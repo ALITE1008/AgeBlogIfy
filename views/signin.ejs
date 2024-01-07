@@ -6,30 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
     <%- include('./partials/header') %>
+    <style>
+        *{
+            color: rgb(70, 70, 208);
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .parent{
+            width: 100%;    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mainp{
+          background-color: rgb(19, 19, 19);
+          padding: 30px;
+          border-radius: 20px;
+          border: 2px solid snow;
+        }
+        .mainp:hover{
+            box-shadow: 0px 0px 30px rgb(76, 249, 249);
+            scale: 0.95;
+            border: 1.2px solid rgb(177, 240, 240);
+        }
+    </style>
 </head>
 
 <body>
     <%- include('./partials/nav') %>
-    <div class="m-5">
+    <div class="parent">
 
-        <form method="post" action="/user/signin">
-            <div class="mb-3">
-                <label for="InputEmail1" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="InputEmail1">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="mb-3">
-                <label for="InputPassword1" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="InputPassword1">
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Signup</button>
-        </form>        
+        <div class="m-5 mainp">
+            
+            <form method="post" action="/user/signin">
+                <div class="mb-3">
+                    <label for="InputEmail1" class="form-label">Email address</label>
+                    <input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="InputEmail1">
+                    <div id="emailHelp" class="form-text" style="color: aliceblue;">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="InputPassword1" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="InputPassword1">
+                </div>
+                <div class="mb-3 main">
+        
+                    <button type="submit" class="btn btn-primary">Signup</button>
+                </div>
+            </form>        
+        </div>
     </div>
         <%- include('./partials/scripts') %>
-</body>
-
-</html>
+    </body>
+    
+    </html>
